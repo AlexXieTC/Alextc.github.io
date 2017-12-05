@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+html{
+	font-size:62.5%;                   	/*equals 10px=1rem, easy to adjust sizes*/
+}
+body{
+	padding:30px;
+	background-color:#f6f7fb;
+	color:#333;
+	font-size:1.2rem;
+	font-family:"Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+*,*::before,*::after{
+	box-sizing:border-box;	//contain the value of padding and border, make it changeless 
+}
+a:link, a:visited,  a:hover,  a:active{
+	color:#7C5119;
+	text-decoration:none;     	/*wipe off the underline*/              	
+}
+.item{
+	width:180px;
+	margin-bottom:4px;
+	padding:8px;
+	border-bottom:3px solid;
+	border-radius:5px;
+	background-color:#fff;              /*white*/
+	overflow:hidden; 			  /*for hover effect*/
+}
+.item .image{
+	display:block;	                      /*fit the size of the box(image)*/
+	width:100%;
+}
+.item .category{
+	margin:15px 9px 10px;
+	color:#aaa;                              /*deep grey*/
+	letter-spacing:1px;
+	font-family:"Trebuchet MS","Hiragino Kaku Gothic ProN", Meiryo, sans-serif; //the 1st the prior
+}
+.item .category::before{
+	content:'';
+	display:inline-block;
+	width:19px;
+	height:19px;
+	margin-right:5px;
+	border:2px solid;
+	border-radius:50%;
+	vertical-align:-5px;         		 /*shift up(vertical direction)*/
+}
+.item .description{
+	margin:10px;
+	line-height:1.5;
+}
+.item >a{                                  	/*select all the element <a> in item*/
+	display:block;                         
+	margin: -8px -8px -11px;  	/*nagative margin to stretch (outside)*/
+	padding:8px 8px 11px;     	/*positive padding to stretch (inside)*/
+	border-radius:inherit;
+	color:#777;                     		/*light grey*/
+	transition:all 0.3s;
+}
+/*item >a:hover{
+	box-shadow:0 0 6px -1px rgba(0,0,0,0.3);
+	opacity:0.8;
+}*/
+.item >a::before{
+	content:'';
+	position:absolute;
+	top:8px;
+	right:8px;
+	left:8px;
+	display:block;
+	height:109px;          			 /* the same height of picture,to lock the position cover on picture */
+	background:rgba(0,0,0,0.5);
+	opacity:0;        				/*unvisuasiable untill hovered*/
+	transition:opacity 0.3s linear;
+}
+.item-m >a::before{		/*herit the property of item,only change the height to cover different size pictures*/
+	height:146px;
+}
+.item-l >a::before{
+	height:403px;
+}
+.item >a:hover::before{
+	opacity:1;
+}
+.item >a::after{
+	content:'MORE';
+	position:absolute;
+	top:43.5px;         	/* picture height(109px)/2=54.5 - box_padding(8px) - box_border(3px)=43.5px*/
+	left:150%;
+	display:block;
+	padding:8px;
+	width:100px;
+	text-align:center;
+	color:#fff;
+	letter-spacing:3px;
+	border:3px solid #fff;
+	font-size:1.6rem;
+	font-family:"Trebuchet MS","Hiragino Kaku Gothic ProN",Meiryo, sans-serif;
+	opacity:0;
+	transition: all 0.3s ease-in-out;
+}
+.item-m >a::after{
+	top:62px;
+}
+.item-l >a::after{
+	top:190.5px;
+}
+.item >a:hover::after{
+	left:50%;          		 /* left50%means the left side of box occupy the center, have to move half of box itself*/
+	margin-left:-50px;  	 /*minus the half of width(100px) make the  frame in center*/
+	opacity:1;
+}
+.item-maindish,
+.item-maindish .category::before{
+	border-color:#FFC0CB;
+}
+.item-appetizer,
+.item-appetizer .category::before{
+	border-color:#76C047;
+}
+.item-column,
+.item-column .category::before{
+	border-color:#FFF100;
+}
+.item-breaktime,
+.item-breaktime .category::before{
+	border-color:#C1EFFF;
+}
+.item-m{
+	width:364px;      			/* .item-m=item*2=180*2+4=364*/
+}
+.item-l{
+	width:732px;    				 /* .item-l=.item-m*2=364*2+4=732*/
+}
+.header{
+	padding: 25px 0;
+	border-bottom: none;  		  /*wipe off the boderline after it paint(dont put it before item part otherwise it cant work)*/
+	text-align: center;
+}
+.logo{
+	width:136px;
+	height:136px;
+	transition:transform 0.3s;     	 /*speed of transform*/
+}
+.logo:hover{
+	transform:rotate(360deg);   	  /*transform performance*/
+}
+.nav{
+	margin:35px auto 10px;      	  /*value=up  lef&right  down*/
+}
+.nav-item{
+	margin-top:20px;       		  /*very use for separation */
+	text-align:center;
+	letter-spacing:1px;
+	font-weight:bold;
+	font-size:1.3rem;
+}
+.nav-item a{                       		 /*give a special effect on link underline when it is hovered*/
+	display:inline-block;
+}
+.nav-item a::after{
+	content:'';
+	display:block;
+	width:0;                    		/*unvisual when it is not be hovered*/
+	margin:6px auto 0;
+	border-bottom:1px solid #7C5119;  	/*deep brown*/
+	transition: width 0.3s ease-in-out; 	/*animation perform speed: easy=quick, out=slow*/
+}
+.nav-item a:hover::after{
+	width:100%;
+}
