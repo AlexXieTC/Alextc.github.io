@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 html{
+	height:100%;
 	font-size:62.5%;                   	/*equals 10px=1rem, easy to adjust sizes*/
 }
 body{
@@ -9,6 +10,7 @@ body{
 	color:#333;
 	font-size:1.2rem;
 	font-family:"Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+	position:relative;
 }
 *,*::before,*::after{
 	box-sizing:border-box;	//contain the value of padding and border, make it changeless 
@@ -170,3 +172,71 @@ a:link, a:visited,  a:hover,  a:active{
 .nav-item a:hover::after{
 	width:100%;
 }
+footer{
+	position:absolute;
+	bottom:0px;
+	left:0;
+	box-shadow:0 1px 1px 0 rgba(0,0,0,0.12);
+	width:100%;
+	font: normal 16px sans-serif;
+	background:#292c2f;
+	text-align:left;
+}
+footer{
+	flex:0 0 auto;
+}
+body{
+	display:flex;
+	flex-direction:column;
+	height:100%;
+}
+
+footer .footer-limiter {
+	max-width: 880px;
+	margin: 0 auto;
+}
+
+footer .footer-left p{
+	color:  #8f9296;
+	font-size: 14px;
+	margin: 0;
+}
+
+/* Footer links */
+
+footer p.footer-links{
+	font-size:18px;
+	font-weight: bold;
+	color:  #ffffff;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+footer p.footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  #FFC0CB;
+}
+
+footer .footer-right{
+	float: right;
+	margin-top: 6px;
+	max-width: 180px;
+}
+
+footer .footer-right a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-left: 3px;
+}
+
